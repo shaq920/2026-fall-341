@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net" agent="Gemini">
+  <diagram name="Order Processing BPMN" id="order-process">
+    <mxGraphModel dx="1014" dy="1308" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start_event" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=1;fillColor=#ffffff;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="80" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="act_take_order" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffffff;strokeColor=#000000;" value="Take the customer order" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="act_credit_check" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffffff;strokeColor=#000000;" value="Run the credit check" vertex="1">
+          <mxGeometry height="60" width="120" x="320" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway_credit" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="70" width="70" x="480" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="Credit approved?" vertex="1">
+          <mxGeometry height="30" width="120" x="455" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="act_ship" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffffff;strokeColor=#000000;" value="Ship the goods" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="act_record" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffffff;strokeColor=#000000;" value="Record the order" vertex="1">
+          <mxGeometry height="60" width="120" x="760" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="end_event_1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#ffffff;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="920" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="act_reject" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#ffffff;strokeColor=#000000;" value="Reject the order" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="end_event_2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=4;fillColor=#ffffff;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="760" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_1" edge="1" parent="1" source="start_event" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="act_take_order">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_2" edge="1" parent="1" source="act_take_order" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="act_credit_check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_3" edge="1" parent="1" source="act_credit_check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="gateway_credit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_approved" edge="1" parent="1" source="gateway_credit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="act_ship" value="approved">
+          <mxGeometry relative="1" x="-0.1111" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow_ship_record" edge="1" parent="1" source="act_ship" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="act_record">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_record_end1" edge="1" parent="1" source="act_record" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="end_event_1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_rejected" edge="1" parent="1" source="gateway_credit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="act_reject" value="rejected">
+          <mxGeometry relative="1" x="-0.1111" y="-10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow_reject_end2" edge="1" parent="1" source="act_reject" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" target="end_event_2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
